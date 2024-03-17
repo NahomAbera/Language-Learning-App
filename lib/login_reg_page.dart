@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(LoginReg());
 }
 
-class MyApp extends StatelessWidget {
+class LoginReg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,8 +38,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Speech Craft'),
+        title: Text('Speech Craft', style: TextStyle(color: Colors.white)), 
+        backgroundColor: Color.fromARGB(255, 43, 36, 58), 
       ),
+      backgroundColor: Color.fromARGB(255, 43, 36, 58),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Form(
@@ -47,7 +50,6 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               _buildLogo(),
-              _buildWelcomeMessage(),
               _buildEmailTextField(),
               _buildPasswordTextField(),
               _isLoginForm ? Container() : _buildConfirmPasswordTextField(),
@@ -62,22 +64,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildLogo() {
     return Container(
       margin: EdgeInsets.only(top: 50),
-      child: FlutterLogo(size: 150),
-    );
-  }
-
-  Widget _buildWelcomeMessage() {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: Text(
-        'Welcome to your Spanish Learning App',
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+      child: Image.asset(
+        'assets/logo.jpg',
+        width: 275,
+        height: 275,
       ),
     );
   }
+
+
 
   Widget _buildEmailTextField() {
     return TextFormField(
@@ -85,8 +80,10 @@ class _LoginPageState extends State<LoginPage> {
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         labelText: 'Email',
-        icon: Icon(Icons.email),
+        icon: Icon(Icons.email, color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white), 
       ),
+      style: TextStyle(color: Colors.white), 
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Please enter your email';
@@ -102,8 +99,10 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: true,
       decoration: InputDecoration(
         labelText: 'Password',
-        icon: Icon(Icons.lock),
+        icon: Icon(Icons.lock, color: Colors.white), 
+        labelStyle: TextStyle(color: Colors.white), 
       ),
+      style: TextStyle(color: Colors.white),
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Please enter your password';
@@ -119,11 +118,13 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: true,
       decoration: InputDecoration(
         labelText: 'Confirm Password',
-        icon: Icon(Icons.lock),
+        icon: Icon(Icons.lock, color: Colors.white),
+        labelStyle: TextStyle(color: Colors.white), 
         errorText: _confirmPasswordController.text != _passwordController.text
             ? 'Passwords do not match'
             : null,
       ),
+      style: TextStyle(color: Colors.white),
       validator: (value) {
         if (value != _passwordController.text) {
           return 'Passwords do not match';
@@ -136,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
   void _register(String email, String password) {
     final existingIndex = binarySearch(emails, email);
     if (existingIndex != -1) {
-      print("User with email $email already exists.");
+      _showMessage("User with email $email already exists.");
       return;
     }
 
@@ -144,20 +145,22 @@ class _LoginPageState extends State<LoginPage> {
     emails.insert(insertionIndex, email);
     passwords.insert(insertionIndex, password);
 
-    print("User registered successfully with email $email.");
+    _showMessage("Registration successful.");
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
   }
 
   void _login(String email, String password) {
     final index = binarySearch(emails, email);
     if (index == -1) {
-      print("User with email $email does not exist.");
+      _showMessage("User with email $email does not exist.");
       return;
     }
 
     if (passwords[index] == password) {
-      print("Login successful!");
+      _showMessage("Login successful.");
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
     } else {
-      print("Incorrect password.");
+      _showMessage("Incorrect password.");
     }
   }
 
@@ -165,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: <Widget>[
         ElevatedButton(
-          child: Text(_isLoginForm ? 'Login' : 'Signup'),
+          child: Text(_isLoginForm ? 'Login' : 'Signup', style: TextStyle(color: Color.fromARGB(255, 43, 36, 58))),
           onPressed: () {
             if (_formKey.currentState?.validate() ?? false) {
               final email = _emailController.text;
@@ -175,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
         TextButton(
-          child: Text(_isLoginForm ? 'Create an account' : 'Have an account? Sign in'),
+          child: Text(_isLoginForm ? 'Create an account' : 'Have an account? Sign in', style: TextStyle(color: Colors.white)), 
           onPressed: () {
             setState(() {
               _isLoginForm = !_isLoginForm;
@@ -183,6 +186,15 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
       ],
+    );
+  }
+
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 2), 
+      ),
     );
   }
 
@@ -226,3 +238,4 @@ class _LoginPageState extends State<LoginPage> {
     return low; 
   }
 }
+

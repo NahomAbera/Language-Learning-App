@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'alphabets1.dart';
 import 'account.dart';
 import 'numbers1.dart';
 import 'words1.dart';
 import 'quizzes.dart';
-import 'sentences1.dart'; 
-import 'words.dart';
-import 'login_reg_page.dart';
+import 'sentences1.dart';
+import 'login_reg_page.dart'; 
 
 void main() {
-  runApp(HomePage());
+  runApp(Alphabets1());
 }
 
-class HomePage extends StatelessWidget {
+class Alphabets1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,17 +21,17 @@ class HomePage extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 43, 36, 58),
         ),
       ),
-      home: LoginReg(),
+      home: SpanishWordsPage(),
     );
   }
 }
 
-class MainPage extends StatefulWidget {
+class SpanishWordsPage extends StatefulWidget {
   @override
-  _MainPageState createState() => _MainPageState();
+  _SpanishWordsPageState createState() => _SpanishWordsPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _SpanishWordsPageState extends State<SpanishWordsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +107,7 @@ class _MainPageState extends State<MainPage> {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Numbers1())); 
             break;
           case "Words":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp())); 
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Words1())); 
             break;
           case "Sentences":
             Navigator.push(context, MaterialPageRoute(builder: (context) => Sentences1())); 
@@ -127,4 +125,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-

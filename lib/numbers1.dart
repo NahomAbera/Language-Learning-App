@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'account.dart'; // Import the account page
-import 'alphabets1.dart'; // Import the alphabets page
-import 'numbers1.dart'; // Import the numbers page
-import 'words1.dart'; // Import the words page
-import 'sentences1.dart'; // Import the sentences page
+import 'account.dart'; 
+import 'alphabets1.dart'; 
+import 'words1.dart';
+import 'sentences1.dart'; 
 import 'quizzes.dart';
+import 'login_reg_page.dart'; 
 
 void main() {
-  runApp(MyApp());
+  runApp(Numbers1());
 }
 
-class MyApp extends StatelessWidget {
+class Numbers1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,121 +22,69 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 43, 36, 58),
         ),
       ),
-      home: SpanishWordsPage(),
+      home: SpanishNumbersPage(),
     );
   }
 }
 
-class SpanishWordsPage extends StatefulWidget {
+class SpanishNumbersPage extends StatefulWidget {
   @override
-  _SpanishWordsPageState createState() => _SpanishWordsPageState();
+  _SpanishNumbersPageState createState() => _SpanishNumbersPageState();
 }
 
-class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerProviderStateMixin {
+class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTickerProviderStateMixin {
   int _currentIndex = 0;
   bool _showEnglishMeaning = false;
 
-  List<Map<String, String>> spanishWords = [
-    {'hola': 'hello'},
-    {'adiós': 'goodbye'},
-    {'gracias': 'thank you'},
-    {'por favor': 'please'},
-    {'sí': 'yes'},
-    {'no': 'no'},
-    {'bueno': 'good'},
-    {'malo': 'bad'},
-    {'grande': 'big'},
-    {'pequeño': 'small'},
-    {'amor': 'love'},
-    {'amigo': 'friend'},
-    {'familia': 'family'},
-    {'casa': 'house'},
-    {'calle': 'street'},
-    {'comida': 'food'},
-    {'agua': 'water'},
-    {'vino': 'wine'},
-    {'cerveza': 'beer'},
-    {'playa': 'beach'},
-    {'sol': 'sun'},
-    {'luna': 'moon'},
-    {'estrella': 'star'},
-    {'jardín': 'garden'},
-    {'árbol': 'tree'},
-    {'flor': 'flower'},
-    {'color': 'color'},
-    {'rojo': 'red'},
-    {'verde': 'green'},
-    {'azul': 'blue'},
-    {'blanco': 'white'},
-    {'negro': 'black'},
-    {'amarillo': 'yellow'},
-    {'naranja': 'orange'},
-    {'rosa': 'pink'},
-    {'maíz': 'corn'},
-    {'pan': 'bread'},
-    {'queso': 'cheese'},
-    {'carne': 'meat'},
-    {'pescado': 'fish'},
-    {'fruta': 'fruit'},
-    {'manzana': 'apple'},
-    {'plátano': 'banana'},
-    {'naranja (fruta)': 'orange'},
-    {'limón': 'lemon'},
-    {'fresa': 'strawberry'},
-    {'pera': 'pear'},
-    {'uva': 'grape'},
-    {'piña': 'pineapple'},
-    {'melón': 'melon'},
-    {'huevo': 'egg'},
-    {'leche': 'milk'},
-    {'café': 'coffee'},
-    {'té': 'tea'},
-    {'azúcar': 'sugar'},
-    {'sal': 'salt'},
-    {'pimienta': 'pepper'},
-    {'aceite': 'oil'},
-    {'vinagre': 'vinegar'},
-    {'arroz': 'rice'},
-    {'frijol': 'bean'},
-    {'pasta': 'pasta'},
-    {'pizza': 'pizza'},
-    {'ensalada': 'salad'},
-    {'sopa': 'soup'},
-    {'carne de res': 'beef'},
-    {'pollo': 'chicken'},
-    {'cerdo': 'pork'},
-    {'cordero': 'lamb'},
-    {'marisco': 'seafood'},
-    {'cangrejo': 'crab'},
-    {'camarón': 'shrimp'},
-    {'langosta': 'lobster'},
-    {'ostra': 'oyster'},
-    {'mejillón': 'mussel'},
-    {'calamar': 'squid'},
-    {'pulpo': 'octopus'},
-    {'caracol': 'snail'},
-    {'ensalada': 'salad'},
-    {'aderezo': 'dressing'},
-    {'tomate': 'tomato'},
-    {'pepino': 'cucumber'},
-    {'lechuga': 'lettuce'},
-    {'cebolla': 'onion'},
-    {'zanahoria': 'carrot'},
-    {'papa': 'potato'},
-    {'ajo': 'garlic'},
-    {'berenjena': 'eggplant'},
-    {'calabacín': 'zucchini'},
-    {'champiñón': 'mushroom'},
-    {'espinaca': 'spinach'},
-    {'brócoli': 'broccoli'},
-    {'coliflor': 'cauliflower'},
-    {'calabaza': 'pumpkin'},
-    {'chile': 'chili'},
-    {'pimiento': 'bell pepper'},
-    {'chile jalapeño': 'jalapeno'},
-    {'cilantro': 'cilantro'},
-    {'albahaca': 'basil'},
-    {'romero': 'rosemary'},
+  List<Map<String, String>> spanishNumbers = [
+    {"0 - cero": "0 - zero"},
+{"1 - uno": "1 - one"},
+{"2 - dos": "2 - two"},
+{"3 - tres": "3 - three"},
+{"4 - cuatro": "4 - four"},
+{"5 - cinco": "5 - five"},
+{"6 - seis": "6 - six"},
+{"7 - siete": "7 - seven"},
+{"8 - ocho": "8 - eight"},
+{"9 - nueve": "9 - nine"},
+{"10 - diez": "10 - ten"},
+{"11 - once": "11 - eleven"},
+{"12 - doce": "12 - twelve"},
+{"13 - trece": "13 - thirteen"},
+{"14 - catorce": "14 - fourteen"},
+{"15 - quince": "15 - fifteen"},
+{"16 - dieciséis": "16 - sixteen"},
+{"17 - diecisiete": "17 - seventeen"},
+{"18 - dieciocho": "18 - eighteen"},
+{"19 - diecinueve": "19 - nineteen"},
+{"20 - veinte": "20 - twenty"},
+{"30 - treinta": "30 - thirty"},
+{"40 - cuarenta": "40 - forty"},
+{"50 - cincuenta": "50 - fifty"},
+{"60 - sesenta": "60 - sixty"},
+{"70 - setenta": "70 - seventy"},
+{"80 - ochenta": "80 - eighty"},
+{"90 - noventa": "90 - ninety"},
+{"100 - cien": "100 - one hundred"},
+{"200 - doscientos": "200 - two hundred"},
+{"300 - trescientos": "300 - three hundred"},
+{"400 - cuatrocientos": "400 - four hundred"},
+{"500 - quinientos": "500 - five hundred"},
+{"600 - seiscientos": "600 - six hundred"},
+{"700 - setecientos": "700 - seven hundred"},
+{"800 - ochocientos": "800 - eight hundred"},
+{"900 - novecientos": "900 - nine hundred"},
+{"1000 - mil": "1000 - one thousand"},
+{"10000 - diez mil": "10000 - ten thousand"},
+{"100000 - cien mil": "100000 - one hundred thousand"},
+{"1000000 - un millón": "1000000 - one million"},
+{"10000000 - diez millones": "10000000 - ten million"},
+{"100000000 - cien millones": "100000000 - one hundred million"},
+{"1000000000 - mil millones": "1000000000 - one billion"},
+{"10000000000 - diez mil millones": "10000000000 - ten billion"},
+{"100000000000 - cien mil millones": "100000000000 - one hundred billion"},
+{"1000000000000 - un billón": "1000000000000 - one trillion"}
+
   ];
 
   late AnimationController _controller;
@@ -182,23 +130,23 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
       appBar: AppBar(
         title: Text(
           'Speech Craft',
-          style: TextStyle(fontSize: 28, color: Colors.white), // Set the title's size and color
+          style: TextStyle(fontSize: 28, color: Colors.white), 
         ),
-        backgroundColor: Color.fromARGB(255, 43, 36, 58), // Set the app bar background color
+        backgroundColor: Color.fromARGB(255, 43, 36, 58), 
         actions: [
           IconButton(
             icon: Icon(
               Icons.menu,
-              color: Colors.white, // Set the color to white
+              color: Colors.white, 
             ),
             onPressed: () {
-              _showMenu(context); // Call the method to show the menu
+              _showMenu(context); 
             },
           ),
         ],
       ),
       body: Container(
-        color: Color.fromARGB(255, 43, 36, 58), // Set the background color here
+        color: Color.fromARGB(255, 43, 36, 58), 
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -219,14 +167,14 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
                   child: Stack(
                     children: [
                       _buildWord(
-                        text: spanishWords[_currentIndex].keys.first,
+                        text: spanishNumbers[_currentIndex].keys.first,
                         rotation: _frontRotation,
-                        label: 'Spanish Word',
+                        label: 'Spanish Number',
                       ),
                       _buildWord(
-                        text: spanishWords[_currentIndex].values.first,
+                        text: spanishNumbers[_currentIndex].values.first,
                         rotation: _backRotation,
-                        label: 'English Meaning',
+                        label: 'English Number',
                       ),
                     ],
                   ),
@@ -238,13 +186,13 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                if (_currentIndex < spanishWords.length - 1) {
+                if (_currentIndex < spanishNumbers.length - 1) {
                   setState(() {
                     _currentIndex++;
                     _showEnglishMeaning = false;
                   });
                 } else {
-                  // Handle reaching the end of words
+
                 }
               },
               child: Text('Next'),
@@ -297,7 +245,7 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
   Widget _buildCustomProgressBar() {
     return Center(
       child: CustomProgressBar(
-        percentage: (_currentIndex + 1) / spanishWords.length,
+        percentage: (_currentIndex + 1) / spanishNumbers.length,
         height: 20.0,
         width: 200.0,
         backgroundColor: Color.fromARGB(255, 236, 241, 236),
@@ -322,7 +270,7 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
               _buildMenuItem(context, "Sentences"),
               _buildMenuItem(context, "Quizzes"),
               SizedBox(height: 20),
-              _buildMenuItem(context, "Exit"),
+              _buildMenuItem(context, "Log Out"),
             ],
           ),
         );
@@ -357,8 +305,8 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
           case "Quizzes":
              Navigator.push(context, MaterialPageRoute(builder: (context) => Quizzes())); // Navigate to the sentences page
             break;
-          case "Exit":
-            Navigator.pop(context); // Close the app
+          case "Log Out":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginReg()));
             break;
           default:
             break;
