@@ -24,4 +24,7 @@ The app is divided into several screens, each catering to different aspects of l
 Explore the app's features via the hamburger menu, which grants users access to essential sections such as the home screen, alphabets, numbers, words, phrases, grammar, and quizzes. Additionally, users can conveniently log out from any screen.
 
 ## Demo
+https://github.com/NahomAbera/Speech-Craft/assets/144270821/481ba378-ec8f-44e6-9003-61add8efc221
+
+
 
