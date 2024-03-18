@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 43, 36, 58),
         ),
       ),
-      home: MainPage(),
+      home: LoginPage(),
     );
   }
 }
