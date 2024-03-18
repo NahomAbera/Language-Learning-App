@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'account.dart'; 
+import 'package:speech_craft/main.dart';
 import 'alphabets1.dart'; 
-import 'words1.dart';
-import 'sentences1.dart'; 
+import 'words.dart';
+import 'grammar.dart'; 
+import 'phrases.dart';
 import 'quizzes.dart';
 import 'login_reg_page.dart'; 
 
@@ -38,54 +39,53 @@ class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTick
 
   List<Map<String, String>> spanishNumbers = [
     {"0 - cero": "0 - zero"},
-{"1 - uno": "1 - one"},
-{"2 - dos": "2 - two"},
-{"3 - tres": "3 - three"},
-{"4 - cuatro": "4 - four"},
-{"5 - cinco": "5 - five"},
-{"6 - seis": "6 - six"},
-{"7 - siete": "7 - seven"},
-{"8 - ocho": "8 - eight"},
-{"9 - nueve": "9 - nine"},
-{"10 - diez": "10 - ten"},
-{"11 - once": "11 - eleven"},
-{"12 - doce": "12 - twelve"},
-{"13 - trece": "13 - thirteen"},
-{"14 - catorce": "14 - fourteen"},
-{"15 - quince": "15 - fifteen"},
-{"16 - dieciséis": "16 - sixteen"},
-{"17 - diecisiete": "17 - seventeen"},
-{"18 - dieciocho": "18 - eighteen"},
-{"19 - diecinueve": "19 - nineteen"},
-{"20 - veinte": "20 - twenty"},
-{"30 - treinta": "30 - thirty"},
-{"40 - cuarenta": "40 - forty"},
-{"50 - cincuenta": "50 - fifty"},
-{"60 - sesenta": "60 - sixty"},
-{"70 - setenta": "70 - seventy"},
-{"80 - ochenta": "80 - eighty"},
-{"90 - noventa": "90 - ninety"},
-{"100 - cien": "100 - one hundred"},
-{"200 - doscientos": "200 - two hundred"},
-{"300 - trescientos": "300 - three hundred"},
-{"400 - cuatrocientos": "400 - four hundred"},
-{"500 - quinientos": "500 - five hundred"},
-{"600 - seiscientos": "600 - six hundred"},
-{"700 - setecientos": "700 - seven hundred"},
-{"800 - ochocientos": "800 - eight hundred"},
-{"900 - novecientos": "900 - nine hundred"},
-{"1000 - mil": "1000 - one thousand"},
-{"10000 - diez mil": "10000 - ten thousand"},
-{"100000 - cien mil": "100000 - one hundred thousand"},
-{"1000000 - un millón": "1000000 - one million"},
-{"10000000 - diez millones": "10000000 - ten million"},
-{"100000000 - cien millones": "100000000 - one hundred million"},
-{"1000000000 - mil millones": "1000000000 - one billion"},
-{"10000000000 - diez mil millones": "10000000000 - ten billion"},
-{"100000000000 - cien mil millones": "100000000000 - one hundred billion"},
-{"1000000000000 - un billón": "1000000000000 - one trillion"}
-
-  ];
+    {"1 - uno": "1 - one"},
+    {"2 - dos": "2 - two"},
+    {"3 - tres": "3 - three"},
+    {"4 - cuatro": "4 - four"},
+    {"5 - cinco": "5 - five"},
+    {"6 - seis": "6 - six"},
+    {"7 - siete": "7 - seven"},
+    {"8 - ocho": "8 - eight"},
+    {"9 - nueve": "9 - nine"},
+    {"10 - diez": "10 - ten"},
+    {"11 - once": "11 - eleven"},
+    {"12 - doce": "12 - twelve"},
+    {"13 - trece": "13 - thirteen"},
+    {"14 - catorce": "14 - fourteen"},
+    {"15 - quince": "15 - fifteen"},
+    {"16 - dieciséis": "16 - sixteen"},
+    {"17 - diecisiete": "17 - seventeen"},
+    {"18 - dieciocho": "18 - eighteen"},
+    {"19 - diecinueve": "19 - nineteen"},
+    {"20 - veinte": "20 - twenty"},
+    {"30 - treinta": "30 - thirty"},
+    {"40 - cuarenta": "40 - forty"},
+    {"50 - cincuenta": "50 - fifty"},
+    {"60 - sesenta": "60 - sixty"},
+    {"70 - setenta": "70 - seventy"},
+    {"80 - ochenta": "80 - eighty"},
+    {"90 - noventa": "90 - ninety"},
+    {"100 - cien": "100 - one hundred"},
+    {"200 - doscientos": "200 - two hundred"},
+    {"300 - trescientos": "300 - three hundred"},
+    {"400 - cuatrocientos": "400 - four hundred"},
+    {"500 - quinientos": "500 - five hundred"},
+    {"600 - seiscientos": "600 - six hundred"},
+    {"700 - setecientos": "700 - seven hundred"},
+    {"800 - ochocientos": "800 - eight hundred"},
+    {"900 - novecientos": "900 - nine hundred"},
+    {"1000 - mil": "1000 - one thousand"},
+    {"10000 - diez mil": "10000 - ten thousand"},
+    {"100000 - cien mil": "100000 - one hundred thousand"},
+    {"1000000 - un millón": "1000000 - one million"},
+    {"10000000 - diez millones": "10000000 - ten million"},
+    {"100000000 - cien millones": "100000000 - one hundred million"},
+    {"1000000000 - mil millones": "1000000000 - one billion"},
+    {"10000000000 - diez mil millones": "10000000000 - ten billion"},
+    {"100000000000 - cien mil millones": "100000000000 - one hundred billion"}, 
+    {"1000000000000 - un billón": "1000000000000 - one trillion"},
+    ];
 
   late AnimationController _controller;
   late Animation<double> _frontRotation;
@@ -129,8 +129,8 @@ class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTick
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Speech Craft',
-          style: TextStyle(fontSize: 28, color: Colors.white), 
+          'Speech Craft: Spanish Numbers',
+          style: TextStyle(fontSize: 23, color: Colors.white), 
         ),
         backgroundColor: Color.fromARGB(255, 43, 36, 58), 
         actions: [
@@ -192,7 +192,7 @@ class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTick
                     _showEnglishMeaning = false;
                   });
                 } else {
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => NumberQuiz()));
                 }
               },
               child: Text('Next'),
@@ -263,11 +263,12 @@ class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTick
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildMenuItem(context, "Account"),
+              _buildMenuItem(context, "Home"),
               _buildMenuItem(context, "Alphabets"),
               _buildMenuItem(context, "Numbers"),
               _buildMenuItem(context, "Words"),
-              _buildMenuItem(context, "Sentences"),
+              _buildMenuItem(context, "Phrases"),
+              _buildMenuItem(context, "Grammar"),
               _buildMenuItem(context, "Quizzes"),
               SizedBox(height: 20),
               _buildMenuItem(context, "Log Out"),
@@ -285,25 +286,28 @@ class _SpanishNumbersPageState extends State<SpanishNumbersPage> with SingleTick
         style: TextStyle(color: Colors.white),
       ),
       onTap: () {
-        Navigator.of(context).pop(); // Close the bottom sheet after tapping a menu item
+        Navigator.of(context).pop(); 
         switch (text) {
-          case "Account":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Account())); // Navigate to the account page
+          case "Home":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())); 
             break;
           case "Alphabets":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Alphabets1())); // Navigate to the alphabets page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Alphabets1()));
             break;
           case "Numbers":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Numbers1())); // Navigate to the numbers page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Numbers1())); 
             break;
           case "Words":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Words1())); // Navigate to the words page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Words()));
             break;
-          case "Sentences":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Sentences1())); // Navigate to the sentences page
+          case "Grammar":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Grammar())); 
+            break;
+          case "Phrases":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Phrases())); 
             break;
           case "Quizzes":
-             Navigator.push(context, MaterialPageRoute(builder: (context) => Quizzes())); // Navigate to the sentences page
+             Navigator.push(context, MaterialPageRoute(builder: (context) => Quizzes())); 
             break;
           case "Log Out":
             Navigator.push(context, MaterialPageRoute(builder: (context) => LoginReg()));

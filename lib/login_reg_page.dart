@@ -74,43 +74,50 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-  Widget _buildEmailTextField() {
-    return TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        labelText: 'Email',
-        icon: Icon(Icons.email, color: Colors.white),
-        labelStyle: TextStyle(color: Colors.white), 
-      ),
-      style: TextStyle(color: Colors.white), 
-      validator: (value) {
-        if (value?.isEmpty ?? true) {
-          return 'Please enter your email';
-        }
-        return null;
-      },
-    );
-  }
+ Widget _buildEmailTextField() {
+  return TextFormField(
+    controller: _emailController,
+    keyboardType: TextInputType.emailAddress,
+    decoration: InputDecoration(
+      labelText: 'Email',
+      icon: Icon(Icons.email, color: Colors.white),
+      labelStyle: TextStyle(color: Colors.white),
+    ),
+    style: TextStyle(color: Colors.white),
+    validator: (value) {
+      if (value?.isEmpty ?? true) {
+        return 'Please enter your email';
+      }
+      if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value!)) {
+        return 'Please enter a valid email address';
+      }
+      return null;
+    },
+  );
+}
 
-  Widget _buildPasswordTextField() {
-    return TextFormField(
-      controller: _passwordController,
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: 'Password',
-        icon: Icon(Icons.lock, color: Colors.white), 
-        labelStyle: TextStyle(color: Colors.white), 
-      ),
-      style: TextStyle(color: Colors.white),
-      validator: (value) {
-        if (value?.isEmpty ?? true) {
-          return 'Please enter your password';
-        }
-        return null;
-      },
-    );
-  }
+Widget _buildPasswordTextField() {
+  return TextFormField(
+    controller: _passwordController,
+    obscureText: true,
+    decoration: InputDecoration(
+      labelText: 'Password',
+      icon: Icon(Icons.lock, color: Colors.white),
+      labelStyle: TextStyle(color: Colors.white),
+    ),
+    style: TextStyle(color: Colors.white),
+    validator: (value) {
+      if (value?.isEmpty ?? true) {
+        return 'Please enter your password';
+      }
+      if (value!.length < 8 || value.length > 16) {
+        return 'Password must be between 8 and 16 characters long';
+      }
+      return null;
+    },
+  );
+}
+
 
   Widget _buildConfirmPasswordTextField() {
     return TextFormField(

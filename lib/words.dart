@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'account.dart'; // Import the account page
-import 'alphabets1.dart'; // Import the alphabets page
-import 'numbers1.dart'; // Import the numbers page
-import 'words1.dart'; // Import the words page
-import 'sentences1.dart'; // Import the sentences page
+import 'main.dart';
+import 'alphabets1.dart'; 
+import 'numbers1.dart';  
+import 'phrases.dart';
+import 'grammar.dart'; 
 import 'quizzes.dart';
+import 'login_reg_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Words());
 }
 
-class MyApp extends StatelessWidget {
+class Words extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -181,24 +182,24 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Speech Craft',
-          style: TextStyle(fontSize: 28, color: Colors.white), // Set the title's size and color
+          'Speech Craft: Spanish Words',
+          style: TextStyle(fontSize: 23, color: Colors.white), 
         ),
-        backgroundColor: Color.fromARGB(255, 43, 36, 58), // Set the app bar background color
+        backgroundColor: Color.fromARGB(255, 43, 36, 58), 
         actions: [
           IconButton(
             icon: Icon(
               Icons.menu,
-              color: Colors.white, // Set the color to white
+              color: Colors.white,
             ),
             onPressed: () {
-              _showMenu(context); // Call the method to show the menu
+              _showMenu(context);
             },
           ),
         ],
       ),
       body: Container(
-        color: Color.fromARGB(255, 43, 36, 58), // Set the background color here
+        color: Color.fromARGB(255, 43, 36, 58), 
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -244,7 +245,7 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
                     _showEnglishMeaning = false;
                   });
                 } else {
-                  // Handle reaching the end of words
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuiz()));
                 }
               },
               child: Text('Next'),
@@ -315,11 +316,12 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildMenuItem(context, "Account"),
+              _buildMenuItem(context, "Home"),
               _buildMenuItem(context, "Alphabets"),
               _buildMenuItem(context, "Numbers"),
               _buildMenuItem(context, "Words"),
-              _buildMenuItem(context, "Sentences"),
+              _buildMenuItem(context, "Phrases"),
+              _buildMenuItem(context, "Grammar"),
               _buildMenuItem(context, "Quizzes"),
               SizedBox(height: 20),
               _buildMenuItem(context, "Exit"),
@@ -337,28 +339,31 @@ class _SpanishWordsPageState extends State<SpanishWordsPage> with SingleTickerPr
         style: TextStyle(color: Colors.white),
       ),
       onTap: () {
-        Navigator.of(context).pop(); // Close the bottom sheet after tapping a menu item
+        Navigator.of(context).pop(); 
         switch (text) {
-          case "Account":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Account())); // Navigate to the account page
+          case "Home":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())); 
             break;
           case "Alphabets":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Alphabets1())); // Navigate to the alphabets page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Alphabets1())); 
             break;
           case "Numbers":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Numbers1())); // Navigate to the numbers page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Numbers1())); 
             break;
           case "Words":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Words1())); // Navigate to the words page
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Words())); 
             break;
-          case "Sentences":
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Sentences1())); // Navigate to the sentences page
+          case "Grammar":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Grammar())); 
+            break;
+          case "Phrases":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Phrases())); 
             break;
           case "Quizzes":
-             Navigator.push(context, MaterialPageRoute(builder: (context) => Quizzes())); // Navigate to the sentences page
+             Navigator.push(context, MaterialPageRoute(builder: (context) => Quizzes())); 
             break;
-          case "Exit":
-            Navigator.pop(context); // Close the app
+          case "Log Out":
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginReg()));
             break;
           default:
             break;
